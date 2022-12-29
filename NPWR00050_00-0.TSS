@@ -1,0 +1,205 @@
+<XML>
+  <VERSION>12/9/2014 1:45:59 PM</VERSION>
+  <SHA1 file="Environments/SceneList.xml" digest="079E4AC07010DEEB1D5056B601011817E4C975B4" />
+  <SHA1 digest="43ECF95BAE126646E9F81556FF12C8544F8F94F7" file="Objects/ObjectCatalogue.bar"/>
+  <SHA1 digest="13C7BDC18EE19E29F50ACA0792649C2C0B88168D" file="Objects/ObjectCatalogue_5_SCEAsia.hcdb"/>
+  <SHA1 digest="F563E9BB74F219C90394607AB1FE6476BD234E6D" file="Objects/ObjectCatalogue_5_SCEJ.hcdb"/>
+  <SHA1 digest="9B4790C1AD80E0DC628ABD9D373CF644D6EBC405" file="Objects/ObjectCatalogue_5_SCEA.hcdb"/>
+  <SHA1 digest="DB16D1CD1BD4AB3D54EBD4EAF2CC887E9A76DD20" file="Objects/ObjectCatalogue_5_SCEE.hcdb"/>  <objects>
+    <prepared_database/>
+  </objects>
+  <SecureContentRoot>http://secure.$(env).homeps3.online.scee.com/</SecureContentRoot>
+  <ScreenContentRoot>http://secure.$(env).homeps3.online.scee.com/Screens/</ScreenContentRoot>
+  <secure_lua_object_resources_root>http://secure.$(env).homeps3.online.scee.com/objects</secure_lua_object_resources_root>
+  <!-- <datacapture>
+  <url mode="1">http://hdc.$(env).homeps3.online.scee.com:10061/dataloaderweb/queue</url>
+  </datacapture>  -->
+  <SHA1 file="Config/Config_en-GB.bar" digest="D92C309514670B05E09CADAF954B692DFA77DE69" />
+  <SHA1 file="Config/Config_de-DE.bar" digest="E18F6EC3E978B710C6C759CEDA48CD02F6E6B842" />
+  <SHA1 file="Config/Config_fr-FR.bar" digest="905C6302702FBA454A2D39A9A91A3A59A2A2670D" />
+  <SHA1 file="Config/Config_es-ES.bar" digest="EA7461AF7005D85E3F9156B5AEF4493FB780159F" />
+  <SHA1 file="Config/Config_it-IT.bar" digest="AAC11C01EDB2AA5CE1BE2533DAFB366EF054F1FA" />
+  <SHA1 file="Config/Config_zh-HK.bar" digest="CC24CE42E7D107B2C12A3406BB5A60D22F9B91F7" />
+  <SHA1 file="Config/Config_en-US.bar" digest="05FD82B2723F1342BF4E51B518CC03BBE1A54489" />
+  <SHA1 file="Config/Config_ja-JP.bar" digest="AB031738B27DA992C935502F9B5044D56B645BE8" />
+  <profanityfilter apiKey="6b77c0b1-4636-4942-b08c-c4ee126b82ae" forceOffline="false" privateKey="NVluu9dWima10JIUKhCVvg==" updaterOverrideUrl="update-prod.pfs.online.scee.com" />
+  <SceneRedirect dest="Home_Square_4_EC01_382D" region="SCEE" src="Home Square" />
+  <SceneRedirect dest="2013_Cinema_193B_7E40" region="SCEE" src="Cinema" />
+  <SceneRedirect dest="2013_Marketplace_8480_98F0" region="SCEE" src="Marketplace" />
+  <SceneRedirect dest="Game_Space_SCEE_5ACB_5A24" region="SCEE" src="Game Space" />
+  <SceneRedirect dest="SCEA_Game_Space_D9CA_5D52" region="SCEA" src="Game Space" />
+  <AdminObjectId>B0824A08-34054866-91573614-3D2DF37C</AdminObjectId>
+  <!-- DNS Overrides.  Maximum 30 entries -->
+  <DNSOverride action="allow" report="on">0.0.0.0/0</DNSOverride>
+  <!-- Uniquez VM provider networks -->
+  <DNSOverride action="error" report="on" clearcache="on">199.19.224.0/22</DNSOverride>
+  <DNSOverride action="error" report="on" clearcache="on">205.185.112.0/20</DNSOverride>
+  <DNSOverride action="error" report="on" clearcache="on">209.141.32.0/19</DNSOverride>
+  <DNSOverride action="error" report="on" clearcache="on">199.195.248.0/21</DNSOverride>
+  <DNSOverride action="error" report="on" clearcache="on">198.98.48.0/20</DNSOverride>
+  <DNSOverride action="error" report="on" clearcache="on">198.251.80.0/20</DNSOverride>
+  <!-- PHC free DNS -->
+  <DNSOverride action="error" report="on" clearcache="on">192.95.0.0/18</DNSOverride>
+  <useregionalserviceids />
+  <maxserviceids>65</maxserviceids>
+  <commerce>
+    <secure_commerce_points />
+  </commerce>
+  <connection>
+    <contentserver key="8b9qT7u6XQ7Sf0GKSIivMEeG7NROLTZGgNtN8iI6n1Y=">http://scee-home.playstation.net/c.home/prod2/live2/</contentserver>
+  </connection>
+  <disablebar />
+  <messageQueue>
+    <connect address="prod.homemq.online.scee.com" port="10086" login="prod" password="monkeyface" vhost="cprod" isCritical="false" />
+    <client>/exchange/exchange.client/pshome.client.$(user)</client>
+    <client>/exchange/exchange.client/pshome.client.command</client>
+    <subscribe>/exchange/exchange.platform/pshome.platform.$(user)</subscribe>
+    <post>/exchange/exchange.event/pshome.client.event.#</post>
+    <post>/exchange/exchange.score/pshome.content.score.#</post>
+    <post>/exchange/exchange.message/pshome.content.message.#</post>
+    <events>
+      <enabled>true</enabled>
+      <destination>
+        <default>/exchange/exchange.event/pshome.client.event</default>
+      </destination>
+    </events>
+    <content>
+      <message>/exchange/exchange.message/pshome.content.message</message>
+      <score>/exchange/exchange.score/pshome.content.score</score>
+    </content>
+  </messageQueue>
+  <ssfw>
+	<!-- ssl accelerated services - homerewards.online.scee.com -->
+	<identity ttl="60" secret="0123456789abcdef">http://cprod.homeidentity.online.scee.com:10443/bb88aea9-6bf8-4201-a6ff-5d1f8da0dd37/</identity>
+	<!-- host ssl services - homeserverservices.online.scee.com -->
+	<rewards>http://cprod.homeserverservices.online.scee.com:10443/RewardsService/cprod/</rewards>
+	<clan>http://cprod.homeserverservices.online.scee.com:10443/ClanService/cprod/clan/</clan>
+	<savedata>http://cprod.homeserverservices.online.scee.com:10443/SaveDataService/cprod/</savedata>
+	<avatar>http://cprod.homeserverservices.online.scee.com:10443/SaveDataService/avatar/cprod/</avatar>
+	<layout>http://cprod.homeserverservices.online.scee.com:10443/LayoutService/cprod/</layout>
+	<trunks>http://cprod.homeserverservices.online.scee.com:10443/RewardsService/trunks-cprod/trunks/</trunks>
+	<avatarlayout>http://cprod.homeserverservices.online.scee.com:10443/AvatarLayoutService/cprod/</avatarlayout>
+	<structured>http://cprod.homeserverservices.online.scee.com:10443/SaveDataService/cprod/</structured>
+  </ssfw>
+  <global>
+    <mode SCEA="3" SCEJ="3" SCEE="3" SCEAsia="3">0</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="0" SCEAsia="1">1</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">7</mode>
+    <mode SCEA="2" SCEJ="2" SCEE="2" SCEAsia="2">21</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">12</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">13</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">14</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">15</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">16</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">17</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">18</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">19</mode>
+    <mode SCEA="1" SCEJ="1" SCEE="1" SCEAsia="1">20</mode>
+  </global>
+  <agerestrictions>
+    <age region="sceasia">0</age>
+    <age region="scej">0</age>
+    <age region="scee">16</age>
+    <age region="scea">13</age>
+    <age region="scek">0</age>
+  </agerestrictions>
+  <REGIONINFO>
+    <INSTANCE_TYPES>
+      <TYPE name="EU" />
+      <TYPE name="US" />
+      <TYPE name="Japan" />
+      <TYPE name="Asia" />
+    </INSTANCE_TYPES>
+    <REGION_TYPES>
+      <!-- 32 max entries -->
+      <TYPE name="EU-GB" territory="SCEE" instance="EU">en-GB</TYPE>
+      <TYPE name="EU-France" territory="SCEE" instance="EU">fr-FR</TYPE>
+      <TYPE name="EU-Italy" territory="SCEE" instance="EU">it-IT</TYPE>
+      <TYPE name="EU-Germany" territory="SCEE" instance="EU">de-DE</TYPE>
+      <TYPE name="EU-Spain" territory="SCEE" instance="EU">es-ES</TYPE>
+      <TYPE name="US" territory="SCEA" instance="US">en-US</TYPE>
+      <TYPE name="Asia-Japan" territory="SCEJ" instance="Japan">ja-JP</TYPE>
+      <TYPE name="Asia-Korea" territory="SCEAsia" instance="Asia">ko-KR</TYPE>
+      <TYPE name="Asia-Taiwan" territory="SCEAsia" instance="Asia">zh-TW</TYPE>
+      <TYPE name="Asia-HongKong" territory="SCEAsia" instance="Asia">zh-HK</TYPE>
+      <TYPE name="Asia-Singapore" territory="SCEAsia" instance="Asia">en-SG</TYPE>
+      <TYPE name="Asia-Indonesia" territory="SCEAsia" instance="Asia">en-ID</TYPE>
+      <TYPE name="Asia-Malaysia" territory="SCEAsia" instance="Asia">en-MY</TYPE>
+      <TYPE name="Asia-Thailand" territory="SCEAsia" instance="Asia">en-TH</TYPE>
+    </REGION_TYPES>
+    <REGION_MAP>
+      <!-- 64 max entries -->
+      <!-- SCEJ -->
+      <MAP code="ja-JP" loc="0">Asia-Japan</MAP>
+      <!-- SCEA -->
+      <MAP code="en-US" loc="0">US</MAP>
+      <MAP code="en-CA" loc="0">US</MAP>
+      <MAP code="fr-CA" loc="0">US</MAP>
+      <!-- SCEE -->
+      <MAP code="en-GB" loc="0">EU-GB</MAP>
+      <MAP code="en-IE" loc="0">EU-GB</MAP>
+      <MAP code="fr-BE" loc="0">EU-France</MAP>
+      <MAP code="nl-BE" loc="0">EU-GB</MAP>
+      <MAP code="fr-LU" loc="0">EU-France</MAP>
+      <MAP code="de-LU" loc="0">EU-Germany</MAP>
+      <MAP code="nl-NL" loc="0">EU-GB</MAP>
+      <MAP code="fr-FR" loc="0">EU-France</MAP>
+      <MAP code="de-DE" loc="0">EU-Germany</MAP>
+      <MAP code="de-AT" loc="0">EU-Germany</MAP>
+      <MAP code="de-CH" loc="0">EU-Germany</MAP>
+      <MAP code="fr-CH" loc="0">EU-France</MAP>
+      <MAP code="it-CH" loc="0">EU-Italy</MAP>
+      <MAP code="it-IT" loc="0">EU-Italy</MAP>
+      <MAP code="pt-PT" loc="0">EU-GB</MAP>
+      <MAP code="en-DK" loc="0">EU-GB</MAP>
+      <MAP code="da-DK" loc="0">EU-GB</MAP>
+      <MAP code="en-FI" loc="0">EU-GB</MAP>
+      <MAP code="fi-FI" loc="0">EU-GB</MAP>
+      <MAP code="en-NO" loc="0">EU-GB</MAP>
+      <MAP code="no-NO" loc="0">EU-GB</MAP>
+      <MAP code="en-SE" loc="0">EU-GB</MAP>
+      <MAP code="sv-SE" loc="0">EU-GB</MAP>
+      <MAP code="en-AU" loc="0">EU-GB</MAP>
+      <MAP code="en-NZ" loc="0">EU-GB</MAP>
+      <MAP code="es-ES" loc="0">EU-Spain</MAP>
+      <MAP code="ru-RU" loc="0">EU-GB</MAP>
+      <MAP code="en-AE" loc="0">EU-GB</MAP>
+      <MAP code="en-ZA" loc="0">EU-GB</MAP>
+      <MAP code="en-CZ" loc="0">EU-GB</MAP>
+      <MAP code="en-SA" loc="0">EU-GB</MAP>
+      <MAP code="en-PL" loc="0">EU-GB</MAP>
+      <MAP code="pl-PL" loc="0">EU-GB</MAP>
+      <MAP code="en-GR" loc="0">EU-GB</MAP>
+      <!-- SCEAsia -->
+      <MAP code="en-HK" loc="0">Asia-HongKong</MAP>
+      <MAP code="zh-HK" loc="0">Asia-HongKong</MAP>
+      <MAP code="en-TW" loc="0">Asia-Taiwan</MAP>
+      <MAP code="zh-TW" loc="0">Asia-Taiwan</MAP>
+      <MAP code="en-SG" loc="0">Asia-Singapore</MAP>
+      <MAP code="ko-KR" loc="0">Asia-Korea</MAP>
+      <MAP code="en-ID" loc="0">Asia-Indonesia</MAP>
+      <MAP code="en-MY" loc="0">Asia-Malaysia</MAP>
+      <MAP code="en-TH" loc="0">Asia-Thailand</MAP>
+    </REGION_MAP>
+    <LOCALISATIONS>
+      <!-- 32 max entries -->
+      <REF language="*-ID">en-SG</REF>
+      <REF language="*-MY">en-SG</REF>
+      <REF language="*-TH">en-SG</REF>
+      <REF language="en-HK">en-SG</REF>
+      <REF language="*-HK">zh-HK</REF>
+      <REF language="en-TW">en-SG</REF>
+      <REF language="*-TW">zh-TW</REF>
+      <REF language="*-SG">en-SG</REF>
+      <REF language="en-US">en-US</REF>
+      <REF language="en-CA">en-US</REF>
+      <REF language="en-*">en-GB</REF>
+      <REF language="fr-*">fr-FR</REF>
+      <REF language="it-*">it-IT</REF>
+      <REF language="de-*">de-DE</REF>
+      <REF language="es-*">es-ES</REF>
+      <REF language="ja-*">ja-JP</REF>
+      <REF language="ko-*">ko-KR</REF>
+    </LOCALISATIONS>
+  </REGIONINFO>
+</XML>
