@@ -1,5 +1,7 @@
 # MakeNav
-MakeNav is a python script aimed at Python 3 for the purpose of creating Navigator XML files for PlayStation Home.
+MakeNav is a python script aimed at Python 3 for the purpose of streamlining the process of creating Navigator XML files for PlayStation Home. It is especially useful for making the Navigator look more like a Retail build's navigator compared to the built-in Dev Navigator UI.
+
+This tool will not work on pre-1.35 Home clients, as those use the World Map instead of the Navigator.
 
 ## Dependencies
 You will need the following:
