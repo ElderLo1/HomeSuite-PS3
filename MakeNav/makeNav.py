@@ -48,7 +48,7 @@ def getCoreSceneNames(parsedData):
 
 def writeNavigatorStart(navFile):
     if navFile:
-        nav.write('<XML>\n  <CONFIG>\n    <BGTYPE>GRAVPARTICLES</BGTYPE>\n  <CONFIG>\n')
+        nav.write('<XML>\n  <CONFIG>\n    <BGTYPE>GRAVPARTICLES</BGTYPE>\n  </CONFIG>\n')
 
 def writeNavigatorCategoryStart(navFile, categoryName='Explore', categoryColor='#000000', categoryImage='http://scea-home.playstation.net/a.home/mfe/content/Navigator/Main_Explorer1.dds'):
     if navFile:
