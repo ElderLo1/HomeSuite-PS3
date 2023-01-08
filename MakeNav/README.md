@@ -18,3 +18,9 @@ If it succeeded, you should see nav.xml in the working directory.
 
 ## Am I done just like that?
 I'd say you'd still have a bit of work to do -- primarily in changing the image urls as they are still pointing to Sony's defunct servers. However, you can also tidy up your newfound navigator file by adding more categories and the like.
+
+## Can I make a fork of this?
+Sure can, just be sure to give appropriate credit to me. Also, if one wishes to tidy up my hacky code, please do. I'd love to see this little tool get better.
+
+### Important
+PlayStation Home is owned by Sony Computer Entertainment Europe. No copyright infringement is intended with this project.
