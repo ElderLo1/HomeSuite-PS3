@@ -6,8 +6,13 @@ coreScenes = ['Home Square', 'Game Space', 'Marketplace', 'Cinema', 'BasicApartm
 parser = argparse.ArgumentParser()                                               
 
 parser.add_argument("--scenelist", "-s", type=str, required=True)
+parser.add_argument("--imageUrlRoot", "-i", type=str, required=False)
 args = parser.parse_args()
 print("Attempting to open " + args.scenelist + "...")
+
+if args.imageUrlRoot == None:
+    args.imageUrlRoot = "http://scea-home.playstation.net/a.home/mfe/content/"
+    print("No Image URL Root found! Defaulting to SCEA Stock URL...")
 
 def canReadData():
     try:
@@ -50,7 +55,7 @@ def writeNavigatorStart(navFile):
     if navFile:
         nav.write('<XML>\n  <CONFIG>\n    <BGTYPE>GRAVPARTICLES</BGTYPE>\n  </CONFIG>\n')
 
-def writeNavigatorCategoryStart(navFile, categoryName='Explore', categoryColor='#000000', categoryImage='http://scea-home.playstation.net/a.home/mfe/content/Navigator/Main_Explorer1.dds'):
+def writeNavigatorCategoryStart(navFile, categoryName='Explore', categoryColor='#000000', categoryImage=args.imageUrlRoot+'Navigator/Main_Explorer1.dds'):
     if navFile:
         nav.write('  <CATEGORY BGCOLOR="'+categoryColor+'">\n')
         nav.write('    <TEXT LANG="en-GB">' + categoryName + '</TEXT>\n')
@@ -77,7 +82,7 @@ def writeNavigatorFile(parsedData, navFile):
     writeNavigatorStart(navFile)
     if len(myCoreScenes) > 0:
         print("Core scenes found!")
-        writeNavigatorCategoryStart(navFile, categoryName='Core', categoryImage='http://scea-home.playstation.net/a.home/mfe/content/Navigator/Main_CoreSpace_01.dds')
+        writeNavigatorCategoryStart(navFile, categoryName='Core', categoryImage=args.imageUrlRoot+'Navigator/Main_CoreSpace_01.dds')
         for coreScene in myCoreScenes:
             writeNavigatorEntry(nav, coreScene)
         writeNavigatorCategoryEnd(nav)
