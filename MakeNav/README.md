@@ -15,8 +15,8 @@ You will need the following:
 Sample: "makeNav.py -s path/to/scenelist.xml"
 
 Extra arguments include:
--i/--imageUrlRoot "WEB_SERVER_IP_OR_DOMAIN_GOES_HERE"
--f/--addFunctions 0/1 (A value of 1 enables "My Home" category containing extra functions such as Favorites and Recently Visited)
+- -i/--imageUrlRoot "WEB_SERVER_IP_OR_DOMAIN_GOES_HERE"
+- -f/--addFunctions 0/1 (A value of 1 enables "My Home" category containing extra functions such as Favorites and Recently Visited)
 
 If it succeeded, you should see nav.xml in the working directory.
 
