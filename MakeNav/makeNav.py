@@ -7,12 +7,18 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("--scenelist", "-s", type=str, required=True)
 parser.add_argument("--imageUrlRoot", "-i", type=str, required=False)
+parser.add_argument("--addFunctions", "-f", type=int, required=False)
 args = parser.parse_args()
 print("Attempting to open " + args.scenelist + "...")
 
 if args.imageUrlRoot == None:
     args.imageUrlRoot = "http://scea-home.playstation.net/a.home/mfe/content/"
     print("No Image URL Root found! Defaulting to SCEA Stock URL...")
+
+if args.addFunctions == None:
+    args.addFunctions = 0
+elif args.addFunctions > 1 | args.addFunctions < 0:
+    args.addFunctions = 0
 
 def canReadData():
     try:
@@ -71,6 +77,12 @@ def writeNavigatorEntry(navFile, sceneName='BasicApartment'):
         nav.write('      <DESTINATION>' + sceneName + '</DESTINATION>\n')
         nav.write('    </ITEM>\n')
 
+def writeNavigatorFunction(navFile, functionName, displayName='Untitled Function', imageURLSuffix='Navigator/Sub_RecentlyVisited_01.dds'):
+    if navFile:
+        nav.write('    <ITEM>\n')
+        nav.write('      <TEXT LANG="en-GB">' + displayName + '</TEXT>\n')
+        nav.write('      <FUNCTION>' + functionName + '</FUNCTION>\n')
+        nav.write('    </ITEM>\n')
 
 def writeNavigatorEnd(navFile):
     if navFile:
@@ -80,6 +92,14 @@ def writeNavigatorFile(parsedData, navFile):
     myCoreScenes = getCoreSceneNames(parsedData)
     myExploreScenes = getOtherSceneNames(parsedData)
     writeNavigatorStart(navFile)
+
+    if args.addFunctions == 1:
+        print("Adding functions category...")
+        writeNavigatorCategoryStart(navFile, categoryName='My Home', categoryImage=args.imageUrlRoot+'Navigator/Main_MyHome_01.dds')
+        writeNavigatorFunction(navFile, 'Favourites', 'Favorites', 'Navigator/Sub_MyFavorites_01.dds')
+        writeNavigatorFunction(navFile, 'RecentlyVisited', 'Recently Visited')
+        writeNavigatorCategoryEnd(nav)
+
     if len(myCoreScenes) > 0:
         print("Core scenes found!")
         writeNavigatorCategoryStart(navFile, categoryName='Core', categoryImage=args.imageUrlRoot+'Navigator/Main_CoreSpace_01.dds')
