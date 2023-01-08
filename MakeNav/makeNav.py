@@ -3,6 +3,8 @@ import argparse
 
 coreScenes = ['Home Square', 'Game Space', 'Marketplace', 'Cinema', 'BasicApartment']
 
+excludedScenes = ['DummyExclusionScene'] # Add scene names to this array to exclude them from the Navigator List.
+
 parser = argparse.ArgumentParser()                                               
 
 parser.add_argument("--scenelist", "-s", type=str, required=True)
@@ -36,6 +38,13 @@ def canReadData():
 def findAllScenes(parsedData):
     scenes = parsedData.find_all('SCENE')
     print(scenes)
+
+def isThisSceneExcluded(sceneName):
+    for exclusion in excludedScenes:
+      if sceneName == exclusion:
+        print(sceneName + ' has been specified as excluded. It will not appear in the navigator.')
+        return True
+    return False
 
 def isThisACoreScene(sceneName):
     for core in coreScenes:
@@ -81,6 +90,7 @@ def writeNavigatorFunction(navFile, functionName, displayName='Untitled Function
     if navFile:
         nav.write('    <ITEM>\n')
         nav.write('      <TEXT LANG="en-GB">' + displayName + '</TEXT>\n')
+        nav.write('      <IMAGE LANG="en-GB">' + args.imageUrlRoot + imageURLSuffix + '</IMAGE>\n')
         nav.write('      <FUNCTION>' + functionName + '</FUNCTION>\n')
         nav.write('    </ITEM>\n')
 
@@ -104,14 +114,16 @@ def writeNavigatorFile(parsedData, navFile):
         print("Core scenes found!")
         writeNavigatorCategoryStart(navFile, categoryName='Core', categoryImage=args.imageUrlRoot+'Navigator/Main_CoreSpace_01.dds')
         for coreScene in myCoreScenes:
-            writeNavigatorEntry(nav, coreScene)
+            if not isThisSceneExcluded(coreScene):
+                writeNavigatorEntry(nav, coreScene)
         writeNavigatorCategoryEnd(nav)
 
     if len(myExploreScenes) > 0:
         print("Non-core scenes found!")
         writeNavigatorCategoryStart(navFile)
         for exploreScene in myExploreScenes:
-            writeNavigatorEntry(nav, exploreScene)
+            if not isThisSceneExcluded(exploreScene):
+                writeNavigatorEntry(nav, exploreScene)
         writeNavigatorCategoryEnd(nav)
 
     writeNavigatorEnd(nav)
