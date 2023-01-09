@@ -31,7 +31,7 @@ Sure can, just be sure to give appropriate credit to me. Also, if one wishes to 
 ## Work that currently needs to be done.
 - Implement handling of scenes inside REGION tags
 - Do more testing on different scenelists (i.e. DH's offline build scenelist)
-- Figure out a way to let the user sort scenes in the Explore category by a creator id.
+- Figure out a way to let the user sort scenes in the Explore category by a creator id. (For now, the user has to edit the nav file manually. It works if they know what they're doing but I'm trying to think of a way to deal with this without editing the sceneist or creting huge arrays of predefined names)
 
 ### Important
 PlayStation Home is owned by Sony Computer Entertainment Europe. No copyright infringement is intended with this project.
