@@ -31,6 +31,7 @@ Sure can, just be sure to give appropriate credit to me. Also, if one wishes to 
 ## Work that currently needs to be done.
 - Implement handling of scenes inside REGION tags
 - Do more testing on different scenelists (i.e. DH's offline build scenelist)
+- Figure out a way to let the user sort scenes in the Explore category by a creator id.
 
 ### Important
 PlayStation Home is owned by Sony Computer Entertainment Europe. No copyright infringement is intended with this project.
