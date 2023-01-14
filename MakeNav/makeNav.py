@@ -1,3 +1,5 @@
+# god this file is so hacky
+
 from bs4 import BeautifulSoup
 import argparse
 
@@ -7,20 +9,10 @@ excludedScenes = ['DummyExclusionScene'] # Add scene names to this array to excl
 
 parser = argparse.ArgumentParser()                                               
 
-parser.add_argument("--scenelist", "-s", type=str, required=True)
+parser.add_argument("--scenelist", "-s", type=str, required=False)
 parser.add_argument("--imageUrlRoot", "-i", type=str, required=False)
 parser.add_argument("--addFunctions", "-f", type=int, required=False)
 args = parser.parse_args()
-print("Attempting to open " + args.scenelist + "...")
-
-if args.imageUrlRoot == None:
-    args.imageUrlRoot = "http://scea-home.playstation.net/a.home/mfe/content/"
-    print("No Image URL Root found! Defaulting to SCEA Stock URL...")
-
-if args.addFunctions == None:
-    args.addFunctions = 0
-elif args.addFunctions > 1 | args.addFunctions < 0:
-    args.addFunctions = 0
 
 def canReadData():
     try:
@@ -34,6 +26,31 @@ def canReadData():
     except:
         print("An unknown exception was thrown when trying to read the scenelist. Aborting...")
         return False
+
+
+if args.scenelist == None:
+   found = 0
+   print("No scenelist specified! Will try to look within the working directory...")
+   for potentialSceneListName in ['SCENELIST.XML', 'LOCALSCENELIST.XML', 'NAVSCENELIST.XML']:
+       args.scenelist = potentialSceneListName
+       if canReadData():
+           print("While no scenelist was specified, a scenelist file was found in the working directory. This file will be used.")
+           found = 1
+           break
+    
+   if found == 0:
+       args.scenelist = None
+       print("Could not find a valid scenelist file in the working directory. Please ensure there is a file with the name of either SCENELIST.XML or LOCALSCENELIST.XML in your working directory.")
+        
+
+if args.imageUrlRoot == None:
+    args.imageUrlRoot = "http://scea-home.playstation.net/a.home/mfe/content/"
+    print("No Image URL Root found! Defaulting to SCEA Stock URL...")
+
+if args.addFunctions == None:
+    args.addFunctions = 0
+elif args.addFunctions > 1 | args.addFunctions < 0:
+    args.addFunctions = 0
 
 def findAllScenes(parsedData):
     scenes = parsedData.find_all('SCENE')
