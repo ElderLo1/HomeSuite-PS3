@@ -35,6 +35,7 @@ Sure can, just be sure to give appropriate credit to me. Also, if one wishes to 
 - You can also name your Scenelist file 'NAVSCENELIST.XML' and the program will find it provided it's in the same directory as the script.
 
 ## Work that currently needs to be done.
+- Leverage this tool to show the proper thumbnail for Harbour Studio on Offline
 - Don't let duplicate scenes with the same name be listed (i.e. Core Scenes in REGION tags)
 - Figure out a way to let the user sort scenes within different subcategories in the Explore category by a creator id. (For now, the user has to edit the nav file manually. It works if they know what they're doing but I'm trying to think of a way to deal with this without editing the sceneist or creating huge arrays of predefined names)
 
